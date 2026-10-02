@@ -3,36 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whitelist Minecraft</title>
+    <title>Minecraft Whitelist</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="container">
-        <div class="card">
-            <h1>Minecraft Whitelist</h1>
-            <p class="subtitle">Entra na whitelist do nosso servidor</p>
+<div class="container">
 
-            <label for="username">Nome do Minecraft</label>
+    <div id="homePanel" class="panel">
+        <h1>MINECRAFT WHITELIST</h1>
+        <p class="subtitle">Entra na whitelist do nosso servidor</p>
+
+        <form id="whitelistForm">
+
+            <label for="minecraftUsername">Nome do Minecraft</label>
             <input
                 type="text"
-                id="username"
-                placeholder="Ex: Steve123"
+                id="minecraftUsername"
+                placeholder="Ex.: Steve"
                 maxlength="16"
+                required
             >
 
-            <div class="captcha" id="captcha">
-                <div class="checkbox" id="captchaBox"></div>
+            <label class="captcha">
+                <input type="checkbox" id="captchaCheck">
                 <span>Não sou um robô</span>
-            </div>
+            </label>
 
-            <button id="submitButton" disabled>Enviar</button>
+            <button type="submit">Enviar</button>
 
             <p id="message"></p>
+        </form>
+
+        <div class="home-links">
+            <button class="link-button" id="showLoginButton">
+                Entrar na conta
+            </button>
+
+            <button class="link-button" id="showSignupButton">
+                Criar conta
+            </button>
+
+            <button class="link-button admin-link" id="showAdminButton">
+                Entrar como administrador
+            </button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+
+    <div id="loginPanel" class="panel hidden">
+        <h1>ENTRAR</h1>
+        <p class="subtitle">Entra na tua conta</p>
+
+        <form id="loginForm">
+
+            <label for="loginEmail">Email</label>
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="O teu email"
+                required
+            >
+
+            <label for="loginPassword">Password</label>
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="A tua password"
+                required
+            >
+
+            <button type="submit">Entrar</button>
+
+            <p id="loginMessage"></p>
+        </form>
+
+        <button class="link-button" id="backFromLogin">
+            ← Voltar
+        </button>
+
+        <button class="link-button" id="goToSignup">
+            Criar conta
+        </button>
+    </div>
+
+
+    <div id="signupPanel" class="panel hidden">
+        <h1>CRIAR CONTA</h1>
+        <p class="subtitle">Cria uma conta para o servidor</p>
+
+        <form id="signupForm">
+
+            <label for="signupUsername">Nome de utilizador</label>
+            <input
+                type="text"
+                id="signupUsername"
+                placeholder="O teu nome"
+                maxlength="30"
+                required
+            >
+
+            <label for="signupEmail">Email</label>
+            <input
+                type="email"
+                id="signupEmail"
+                placeholder="O teu email"
+                required
+            >
+
+            <label for="signupPassword">Password</label>
+            <input
+                type="password"
+                id="signupPassword"
+                placeholder="Mínimo 6 caracteres"
+                minlength="6"
+                required
+            >
+
+            <label for="signupPasswordConfirm">Confirmar password</label>
+            <input
+                type="password"
+                id="signupPasswordConfirm"
+                placeholder="Repete a password"
+                minlength="6"
+                required
+            >
+
+            <button type="submit">Criar conta</button>
+
+            <p id="signupMessage"></p>
+        </form>
+
+        <button class="link-button" id="backFromSignup">
+            ← Voltar
+        </button>
+
+        <button class="link-button" id="goToLogin">
+            Já tenho uma conta
+        </button>
+    </div>
+
+
+    <div id="accountPanel" class="panel hidden">
+
+        <div class="account-header">
+            <div>
+                <h1>OLÁ!</h1>
+                <p id="accountUsername"></p>
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                Sair
+            </button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" id="serverTab">
+                Servidor
+            </button>
+
+            <button class="tab-button" id="requestTab">
+                Pedir Whitelist
+            </button>
+        </div>
+
+
+        <div id="serverSection">
+
+            <h2>Informações do servidor</h2>
+
+            <div class="server-box">
+
+                <div class="server-item">
+                    <h3>Java</h3>
+
+                    <div class="copy-row">
+                        <span>aura67egosigma.aternos.me:49738</span>
+
+                        <button
+                            class="copy-button"
+                            data-copy="aura67egosigma.aternos.me:49738"
+                        >
+                            Copiar
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="server-item">
+                    <h3>Bedrock</h3>
+
+                    <div class="copy-row">
+                        <span>aura67egosigma.aternos.me</span>
+
+                        <button
+                            class="copy-button"
+                            data-copy="aura67egosigma.aternos.me"
+                        >
+                            Copiar
+                        </button>
+                    </div>
+
+                    <div class="copy-row">
+                        <span>Porta: 49738</span>
+
+                        <button
+                            class="copy-button"
+                            data-copy="49738"
+                        >
+                            Copiar
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="server-item">
+                    <h3>Dificuldade</h3>
+                    <p>Normal</p>
+                </div>
+
+
+                <div class="server-item">
+                    <h3>Versão</h3>
+                    <p>26.2 (Java)</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="requestSection" class="hidden">
+
+            <h2>Pedir Whitelist</h2>
+            <p class="subtitle">
+                Envia o teu nome de Minecraft para entrares na whitelist.
+            </p>
+
+            <form id="accountWhitelistForm">
+
+                <label for="accountMinecraftUsername">
+                    Nome do Minecraft
+                </label>
+
+                <input
+                    type="text"
+                    id="accountMinecraftUsername"
+                    placeholder="Ex.: Steve"
+                    maxlength="16"
+                    required
+                >
+
+                <button type="submit">
+                    Pedir Whitelist
+                </button>
+
+                <p id="accountWhitelistMessage"></p>
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <div id="adminLoginPanel" class="panel hidden">
+
+        <h1>ADMINISTRADOR</h1>
+        <p class="subtitle">Entra no painel de administração</p>
+
+        <form id="adminLoginForm">
+
+            <label for="adminEmail">Email</label>
+            <input
+                type="email"
+                id="adminEmail"
+                placeholder="Email do administrador"
+                required
+            >
+
+            <label for="adminPassword">Password</label>
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Password"
+                required
+            >
+
+            <button type="submit">
+                Entrar
+            </button>
+
+            <p id="adminLoginMessage"></p>
+        </form>
+
+        <button class="link-button" id="backFromAdmin">
+            ← Voltar
+        </button>
+
+    </div>
+
+
+    <div id="adminPanel" class="panel hidden">
+
+        <div class="account-header">
+            <div>
+                <h1>ADMIN</h1>
+                <p>Painel de administração</p>
+            </div>
+
+            <button class="logout-button" id="adminLogoutButton">
+                Sair
+            </button>
+        </div>
+
+
+        <h2>Informações do servidor</h2>
+
+        <div class="server-box">
+
+            <div class="server-item">
+                <h3>Java</h3>
+
+                <div class="copy-row">
+                    <span>aura67egosigma.aternos.me:49738</span>
+
+                    <button
+                        class="copy-button"
+                        data-copy="aura67egosigma.aternos.me:49738"
+                    >
+                        Copiar
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="server-item">
+                <h3>Bedrock</h3>
+
+                <div class="copy-row">
+                    <span>aura67egosigma.aternos.me</span>
+
+                    <button
+                        class="copy-button"
+                        data-copy="aura67egosigma.aternos.me"
+                    >
+                        Copiar
+                    </button>
+                </div>
+
+                <div class="copy-row">
+                    <span>Porta: 49738</span>
+
+                    <button
+                        class="copy-button"
+                        data-copy="49738"
+                    >
+                        Copiar
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="server-item">
+                <h3>Dificuldade</h3>
+                <p>Normal</p>
+            </div>
+
+
+            <div class="server-item">
+                <h3>Versão</h3>
+                <p>26.2 (Java)</p>
+            </div>
+
+
+            <div class="server-item admin-only">
+                <h3>Seed</h3>
+
+                <div class="copy-row">
+                    <span>6612976275877909615</span>
+
+                    <button
+                        class="copy-button"
+                        data-copy="6612976275877909615"
+                    >
+                        Copiar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <h2>Pedidos de Whitelist</h2>
+
+        <div id="adminRequests">
+            <p>A carregar pedidos...</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
