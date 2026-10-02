@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitelist Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h1>Minecraft Whitelist</h1>
+            <p class="subtitle">Entra na whitelist do nosso servidor</p>
+
+            <label for="username">Nome do Minecraft</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Ex: Steve123"
+                maxlength="16"
+            >
+
+            <div class="captcha" id="captcha">
+                <div class="checkbox" id="captchaBox"></div>
+                <span>Não sou um robô</span>
+            </div>
+
+            <button id="submitButton" disabled>Enviar</button>
+
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
