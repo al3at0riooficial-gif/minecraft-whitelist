@@ -5,18 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Whitelist</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
 
 <div class="container">
 
+    <div class="language-selector">
+        <label for="languageSelect" id="languageLabel">Idioma</label>
+        <select id="languageSelect">
+            <option value="pt">PT</option>
+            <option value="en">EN</option>
+        </select>
+    </div>
+
+
+    <!-- HOME -->
+
     <div id="homePanel" class="panel">
-        <h1>MINECRAFT WHITELIST</h1>
-        <p class="subtitle">Entra na whitelist do nosso servidor</p>
+
+        <h1 data-i18n="homeTitle">MINECRAFT WHITELIST</h1>
+
+        <p class="subtitle" data-i18n="homeSubtitle">
+            Entra na whitelist do nosso servidor
+        </p>
 
         <form id="whitelistForm">
 
-            <label for="minecraftUsername">Nome do Minecraft</label>
+            <label for="minecraftUsername" data-i18n="minecraftName">
+                Nome do Minecraft
+            </label>
+
             <input
                 type="text"
                 id="minecraftUsername"
@@ -26,38 +45,59 @@
             >
 
             <label class="captcha">
+
                 <input type="checkbox" id="captchaCheck">
-                <span>Não sou um robô</span>
+
+                <span data-i18n="notRobot">
+                    Não sou um robô
+                </span>
+
             </label>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" data-i18n="submit">
+                Enviar
+            </button>
 
             <p id="message"></p>
+
         </form>
 
+
         <div class="home-links">
-            <button class="link-button" id="showLoginButton">
+
+            <button class="link-button" id="showLoginButton" data-i18n="loginAccount">
                 Entrar na conta
             </button>
 
-            <button class="link-button" id="showSignupButton">
+            <button class="link-button" id="showSignupButton" data-i18n="createAccount">
                 Criar conta
             </button>
 
-            <button class="link-button admin-link" id="showAdminButton">
+            <button class="link-button admin-link" id="showAdminButton" data-i18n="adminLogin">
                 Entrar como administrador
             </button>
+
         </div>
+
     </div>
 
 
+    <!-- LOGIN -->
+
     <div id="loginPanel" class="panel hidden">
-        <h1>ENTRAR</h1>
-        <p class="subtitle">Entra na tua conta</p>
+
+        <h1 data-i18n="loginTitle">ENTRAR</h1>
+
+        <p class="subtitle" data-i18n="loginSubtitle">
+            Entra na tua conta
+        </p>
 
         <form id="loginForm">
 
-            <label for="loginEmail">Email</label>
+            <label for="loginEmail" data-i18n="email">
+                Email
+            </label>
+
             <input
                 type="email"
                 id="loginEmail"
@@ -65,7 +105,10 @@
                 required
             >
 
-            <label for="loginPassword">Password</label>
+            <label for="loginPassword" data-i18n="password">
+                Password
+            </label>
+
             <input
                 type="password"
                 id="loginPassword"
@@ -73,28 +116,41 @@
                 required
             >
 
-            <button type="submit">Entrar</button>
+            <button type="submit" data-i18n="login">
+                Entrar
+            </button>
 
             <p id="loginMessage"></p>
+
         </form>
 
-        <button class="link-button" id="backFromLogin">
+        <button class="link-button" id="backFromLogin" data-i18n="back">
             ← Voltar
         </button>
 
-        <button class="link-button" id="goToSignup">
+        <button class="link-button" id="goToSignup" data-i18n="createAccount">
             Criar conta
         </button>
+
     </div>
 
 
+    <!-- SIGNUP -->
+
     <div id="signupPanel" class="panel hidden">
-        <h1>CRIAR CONTA</h1>
-        <p class="subtitle">Cria uma conta para o servidor</p>
+
+        <h1 data-i18n="signupTitle">CRIAR CONTA</h1>
+
+        <p class="subtitle" data-i18n="signupSubtitle">
+            Cria uma conta para o servidor
+        </p>
 
         <form id="signupForm">
 
-            <label for="signupUsername">Nome de utilizador</label>
+            <label for="signupUsername" data-i18n="username">
+                Nome de utilizador
+            </label>
+
             <input
                 type="text"
                 id="signupUsername"
@@ -103,7 +159,10 @@
                 required
             >
 
-            <label for="signupEmail">Email</label>
+            <label for="signupEmail" data-i18n="email">
+                Email
+            </label>
+
             <input
                 type="email"
                 id="signupEmail"
@@ -111,7 +170,10 @@
                 required
             >
 
-            <label for="signupPassword">Password</label>
+            <label for="signupPassword" data-i18n="password">
+                Password
+            </label>
+
             <input
                 type="password"
                 id="signupPassword"
@@ -120,7 +182,10 @@
                 required
             >
 
-            <label for="signupPasswordConfirm">Confirmar password</label>
+            <label for="signupPasswordConfirm" data-i18n="confirmPassword">
+                Confirmar password
+            </label>
+
             <input
                 type="password"
                 id="signupPasswordConfirm"
@@ -129,119 +194,195 @@
                 required
             >
 
-            <button type="submit">Criar conta</button>
+            <button type="submit" data-i18n="createAccount">
+                Criar conta
+            </button>
 
             <p id="signupMessage"></p>
+
         </form>
 
-        <button class="link-button" id="backFromSignup">
+        <button class="link-button" id="backFromSignup" data-i18n="back">
             ← Voltar
         </button>
 
-        <button class="link-button" id="goToLogin">
+        <button class="link-button" id="goToLogin" data-i18n="alreadyAccount">
             Já tenho uma conta
         </button>
+
     </div>
 
+
+    <!-- ACCOUNT -->
 
     <div id="accountPanel" class="panel hidden">
 
         <div class="account-header">
+
             <div>
-                <h1>OLÁ!</h1>
+
+                <h1 data-i18n="hello">
+                    OLÁ!
+                </h1>
+
                 <p id="accountUsername"></p>
+
             </div>
 
-            <button class="logout-button" id="logoutButton">
+            <button class="logout-button" id="logoutButton" data-i18n="logout">
                 Sair
             </button>
+
         </div>
 
+
         <div class="tabs">
-            <button class="tab-button active" id="serverTab">
+
+            <button class="tab-button active" id="serverTab" data-i18n="server">
                 Servidor
             </button>
 
-            <button class="tab-button" id="requestTab">
+            <button class="tab-button" id="requestTab" data-i18n="requestWhitelist">
                 Pedir Whitelist
             </button>
+
         </div>
 
 
+        <!-- SERVER -->
+
         <div id="serverSection">
 
-            <h2>Informações do servidor</h2>
+            <h2 data-i18n="serverInformation">
+                Informações do servidor
+            </h2>
 
             <div class="server-box">
 
                 <div class="server-item">
+
                     <h3>Java</h3>
 
                     <div class="copy-row">
-                        <span>aura67egosigma.aternos.me:49738</span>
+
+                        <span>soumsimplesserver.aternos.me:20557</span>
 
                         <button
                             class="copy-button"
-                            data-copy="aura67egosigma.aternos.me:49738"
+                            data-copy="soumsimplesserver.aternos.me:20557"
+                            data-i18n="copy"
                         >
                             Copiar
                         </button>
+
                     </div>
+
                 </div>
 
 
                 <div class="server-item">
+
                     <h3>Bedrock</h3>
 
                     <div class="copy-row">
-                        <span>aura67egosigma.aternos.me</span>
+
+                        <span>soumsimplesserver.aternos.me</span>
 
                         <button
                             class="copy-button"
-                            data-copy="aura67egosigma.aternos.me"
+                            data-copy="soumsimplesserver.aternos.me"
+                            data-i18n="copy"
                         >
                             Copiar
                         </button>
+
                     </div>
 
                     <div class="copy-row">
-                        <span>Porta: 49738</span>
+
+                        <span data-i18n="port">
+                            Porta: 20557
+                        </span>
 
                         <button
                             class="copy-button"
-                            data-copy="49738"
+                            data-copy="20557"
+                            data-i18n="copy"
                         >
                             Copiar
                         </button>
+
                     </div>
+
                 </div>
 
 
                 <div class="server-item">
-                    <h3>Dificuldade</h3>
+
+                    <h3 data-i18n="difficulty">
+                        Dificuldade
+                    </h3>
+
                     <p>Normal</p>
+
                 </div>
 
 
                 <div class="server-item">
-                    <h3>Versão</h3>
+
+                    <h3 data-i18n="version">
+                        Versão
+                    </h3>
+
                     <p>26.2 (Java)</p>
+
                 </div>
 
             </div>
+
         </div>
 
 
+        <!-- WHITELIST -->
+
         <div id="requestSection" class="hidden">
 
-            <h2>Pedir Whitelist</h2>
-            <p class="subtitle">
+            <h2 data-i18n="requestWhitelist">
+                Pedir Whitelist
+            </h2>
+
+            <p class="subtitle" data-i18n="requestSubtitle">
                 Envia o teu nome de Minecraft para entrares na whitelist.
             </p>
 
+
+            <div id="whitelistStatus" class="whitelist-status hidden">
+
+                <div id="whitelistStatusIcon" class="status-icon">
+                    🟡
+                </div>
+
+                <div>
+
+                    <strong id="whitelistStatusTitle">
+                        Pendente
+                    </strong>
+
+                    <p id="whitelistStatusText">
+                        O teu pedido está a aguardar aprovação.
+                    </p>
+
+                </div>
+
+            </div>
+
+
             <form id="accountWhitelistForm">
 
-                <label for="accountMinecraftUsername">
+                <label
+                    for="accountMinecraftUsername"
+                    data-i18n="minecraftName"
+                >
                     Nome do Minecraft
                 </label>
 
@@ -253,11 +394,15 @@
                     required
                 >
 
-                <button type="submit">
+                <button
+                    type="submit"
+                    data-i18n="requestWhitelist"
+                >
                     Pedir Whitelist
                 </button>
 
                 <p id="accountWhitelistMessage"></p>
+
             </form>
 
         </div>
@@ -265,14 +410,24 @@
     </div>
 
 
+    <!-- ADMIN LOGIN -->
+
     <div id="adminLoginPanel" class="panel hidden">
 
-        <h1>ADMINISTRADOR</h1>
-        <p class="subtitle">Entra no painel de administração</p>
+        <h1 data-i18n="administrator">
+            ADMINISTRADOR
+        </h1>
+
+        <p class="subtitle" data-i18n="adminSubtitle">
+            Entra no painel de administração
+        </p>
 
         <form id="adminLoginForm">
 
-            <label for="adminEmail">Email</label>
+            <label for="adminEmail" data-i18n="email">
+                Email
+            </label>
+
             <input
                 type="email"
                 id="adminEmail"
@@ -280,7 +435,10 @@
                 required
             >
 
-            <label for="adminPassword">Password</label>
+            <label for="adminPassword" data-i18n="password">
+                Password
+            </label>
+
             <input
                 type="password"
                 id="adminPassword"
@@ -288,120 +446,174 @@
                 required
             >
 
-            <button type="submit">
+            <button type="submit" data-i18n="login">
                 Entrar
             </button>
 
             <p id="adminLoginMessage"></p>
+
         </form>
 
-        <button class="link-button" id="backFromAdmin">
+        <button class="link-button" id="backFromAdmin" data-i18n="back">
             ← Voltar
         </button>
 
     </div>
 
 
+    <!-- ADMIN -->
+
     <div id="adminPanel" class="panel hidden">
 
         <div class="account-header">
+
             <div>
+
                 <h1>ADMIN</h1>
-                <p>Painel de administração</p>
+
+                <p data-i18n="adminPanel">
+                    Painel de administração
+                </p>
+
             </div>
 
-            <button class="logout-button" id="adminLogoutButton">
+            <button
+                class="logout-button"
+                id="adminLogoutButton"
+                data-i18n="logout"
+            >
                 Sair
             </button>
+
         </div>
 
 
-        <h2>Informações do servidor</h2>
+        <h2 data-i18n="serverInformation">
+            Informações do servidor
+        </h2>
+
 
         <div class="server-box">
 
             <div class="server-item">
+
                 <h3>Java</h3>
 
                 <div class="copy-row">
-                    <span>aura67egosigma.aternos.me:49738</span>
+
+                    <span>soumsimplesserver.aternos.me:20557</span>
 
                     <button
                         class="copy-button"
-                        data-copy="aura67egosigma.aternos.me:49738"
+                        data-copy="soumsimplesserver.aternos.me:20557"
+                        data-i18n="copy"
                     >
                         Copiar
                     </button>
+
                 </div>
+
             </div>
 
 
             <div class="server-item">
+
                 <h3>Bedrock</h3>
 
                 <div class="copy-row">
-                    <span>aura67egosigma.aternos.me</span>
+
+                    <span>soumsimplesserver.aternos.me</span>
 
                     <button
                         class="copy-button"
-                        data-copy="aura67egosigma.aternos.me"
+                        data-copy="soumsimplesserver.aternos.me"
+                        data-i18n="copy"
                     >
                         Copiar
                     </button>
+
                 </div>
 
                 <div class="copy-row">
-                    <span>Porta: 49738</span>
+
+                    <span data-i18n="port">
+                        Porta: 20557
+                    </span>
 
                     <button
                         class="copy-button"
-                        data-copy="49738"
+                        data-copy="20557"
+                        data-i18n="copy"
                     >
                         Copiar
                     </button>
+
                 </div>
+
             </div>
 
 
             <div class="server-item">
-                <h3>Dificuldade</h3>
+
+                <h3 data-i18n="difficulty">
+                    Dificuldade
+                </h3>
+
                 <p>Normal</p>
+
             </div>
 
 
             <div class="server-item">
-                <h3>Versão</h3>
+
+                <h3 data-i18n="version">
+                    Versão
+                </h3>
+
                 <p>26.2 (Java)</p>
+
             </div>
 
 
             <div class="server-item admin-only">
+
                 <h3>Seed</h3>
 
                 <div class="copy-row">
+
                     <span>6612976275877909615</span>
 
                     <button
                         class="copy-button"
                         data-copy="6612976275877909615"
+                        data-i18n="copy"
                     >
                         Copiar
                     </button>
+
                 </div>
+
             </div>
 
         </div>
 
 
-        <h2>Pedidos de Whitelist</h2>
+        <h2 data-i18n="whitelistRequests">
+            Pedidos de Whitelist
+        </h2>
 
         <div id="adminRequests">
-            <p>A carregar pedidos...</p>
+
+            <p data-i18n="loadingRequests">
+                A carregar pedidos...
+            </p>
+
         </div>
 
     </div>
 
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>

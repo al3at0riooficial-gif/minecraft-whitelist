@@ -19,6 +19,31 @@ body {
     max-width: 520px;
 }
 
+.language-selector {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.language-selector label {
+    color: #78847c;
+    font-size: 12px;
+    margin: 0;
+}
+
+.language-selector select {
+    background: #111713;
+    color: #dce5df;
+    border: 1px solid #26352b;
+    border-radius: 7px;
+    padding: 5px 7px;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+}
+
 .panel {
     background: #111713;
     border: 1px solid #26352b;
@@ -243,6 +268,38 @@ button:hover {
     border-color: #725d25;
 }
 
+
+/* WHITELIST STATUS */
+
+.whitelist-status {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: #0c120e;
+    border: 1px solid #26352b;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 18px;
+}
+
+.status-icon {
+    font-size: 25px;
+}
+
+.whitelist-status strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.whitelist-status p {
+    margin: 0;
+    color: #8f9c94;
+    font-size: 13px;
+}
+
+
+/* ADMIN REQUESTS */
+
 #adminRequests {
     display: flex;
     flex-direction: column;
@@ -275,6 +332,46 @@ button:hover {
     margin-top: 7px;
 }
 
+.request-status {
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #e7c85b;
+}
+
+.status-approved {
+    color: #55e57e;
+}
+
+.status-rejected {
+    color: #ff6262;
+}
+
+.request-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.approve-button {
+    background: #1e8f45;
+    color: white;
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.reject-button {
+    background: #725b24;
+    color: white;
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
 .delete-button {
     background: #a52f2f;
     color: white;
@@ -288,7 +385,9 @@ button:hover {
     padding: 20px 5px;
 }
 
+
 @media (max-width: 500px) {
+
     body {
         padding: 10px;
         align-items: flex-start;
@@ -309,5 +408,13 @@ button:hover {
 
     .copy-button {
         margin-top: 1px;
+    }
+
+    .request-card-top {
+        align-items: flex-start;
+    }
+
+    .request-actions button {
+        flex: 1;
     }
 }
